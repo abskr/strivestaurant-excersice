@@ -1,8 +1,8 @@
 import { Alert } from 'react-bootstrap';
 
-const ShowAlert = ({ errorMsg }) => (
+const ShowAlert = ({ errorMsg, errorHead }) => (
   <Alert className="my-3" variant="danger">
-    <Alert.Heading>Oops, there's an Error...</Alert.Heading>
+    <Alert.Heading>{errorHead}</Alert.Heading>
     <p>{errorMsg}</p>
   </Alert>
 );
