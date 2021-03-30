@@ -188,7 +188,10 @@ class ReservationForm extends React.Component {
           </Button>
         </Form>
         {this.state.errorStat.isError && (
-          <ShowAlert errorMsg={this.state.errorStat.errorMsg} />
+          <ShowAlert
+            errorHead="Oops, there's an Error..."
+            errorMsg={this.state.errorStat.errorMsg}
+          />
         )}
       </>
     );
