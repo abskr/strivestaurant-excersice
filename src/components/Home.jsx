@@ -4,6 +4,7 @@ import items from '../data/menu.json';
 import DishComments from './DishComments';
 import ReservationForm from './ReservationForm';
 import Reservations from './Reservations';
+import ShowAlert from './ShowAlert';
 
 // functional components are great to work with and they can use the props
 // but if we want to use the state, we need a CLASS BASED component
@@ -22,6 +23,11 @@ class Home extends React.Component {
   // }
 
   render() {
+    console.log(
+      !this.state.selectedDish.comments
+        .map((c) => c.rating === 5)
+        .includes(false)
+    );
     return (
       <Container>
         <Row className="justify-content-center mt-3">
@@ -56,17 +62,27 @@ class Home extends React.Component {
         </Row>
         <Row className="justify-content-center mt-5">
           <Col xs={8}>
-            <Reservations />
+            <Reservations header={this.state.selectedDish.name} />
           </Col>
         </Row>
         <Row className="justify-content-center mt-5">
           <Col xs={8}>
-            <ReservationForm />
+            {!this.state.selectedDish.comments
+              .map((c) => c.rating === 5)
+              .includes(false) ? (
+              <ReservationForm />
+            ) : (
+              <ShowAlert
+                errorHead="This dish is not recomended"
+                errorMsg="No no no..."
+              />
+            )}
+            {/* */}
           </Col>
         </Row>
         <Row className="justify-content-center mt-5">
           <Col xs={8}>
-            {!this.state.selectedDish.name === 'Amatriciana' && (
+            {this.state.selectedDish.name !== 'Amatriciana' && (
               <DishComments selectedDish={this.state.selectedDish} />
             )}
           </Col>
