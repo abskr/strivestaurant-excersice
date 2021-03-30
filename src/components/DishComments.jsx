@@ -16,7 +16,7 @@ import React, { Component } from 'react';
 
 class DishComments extends Component {
   componentDidUpdate = () => {
-    setTimeout(this.setState, 1000);
+    setTimeout(this.setState(), 1000);
     //I'm not sure tho...
   };
 
