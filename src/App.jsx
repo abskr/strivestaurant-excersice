@@ -8,7 +8,7 @@ function App() {
     <div>
       <NavBar
         title='Strivestaurant'
-        links={['Home', 'Contacts', 'Location', 'blabla', 'Flynn']}
+        links={['Home', 'Contacts', 'Location', 'blabla', 'Flynn', 'Alfredo']}
       />
       <Home
         newTitle='This is the new title'

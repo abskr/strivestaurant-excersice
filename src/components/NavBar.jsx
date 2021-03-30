@@ -18,18 +18,23 @@ import { Navbar, Nav } from 'react-bootstrap';
 class NavBar extends Component {
   constructor(props) {
     super(props);
-    console.log('rendering NavBar.jsx... (3rd task)');
+    console.log('rendering class constructor from NavBar.jsx... (3rd task)');
   }
 
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          {this.props.title} - Strive for food
+      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+        <Navbar.Brand href='#home'>
+          {this.props.title}
+          {this.props.links.includes('Alfredo') ? (
+            <p>- The perfect place for pasta lovers</p>
+          ) : (
+            <p>- Strive for food</p>
+          )}
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">
+        <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+        <Navbar.Collapse id='responsive-navbar-nav'>
+          <Nav className='ml-auto'>
             {this.props.links.map((link) => (
               <Nav.Link key={link} href={'#' + link.toLowerCase()}>
                 {link}
